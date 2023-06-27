@@ -1,55 +1,58 @@
 #include "sort.h"
 /**
- * quick_sort - function that sorts an array of integers in ascending
- * order using the quick sort algorithm
+ * quick_sort - function that sorts an array of integers
  *
- * @array: input arrray
- * @size: size of the array
- * Return: no return
+ * @array: parameter of type int
+ * @size: parameter of type struct
+ *
  */
 void quick_sort(int *array, size_t size)
 {
 	_qsort(array, 0, size - 1, size);
 }
 /**
- * _qsort - helper function for the quick_sort function
- * @a: input arrray
- * @low: index for the first element
- * @high: index for the last element
- * @size: size of the array
- * Return: no return
+ * _qsort - function of type void
+ *
+ * @a: parameter of type int
+ * @low: parameter of type int
+ * @high: parameter of type int
+ * @size: parameter of type int
+ *
  */
-void _qsort(int *a, int low, int high, int size)
-{
-	int h, l, i;
-	int tmp;
 
-	if (low < high)
+void _qsort(int *dao, int dat, int dai, int dap)
+{
+	int soq;
+	int sow;
+	int soe;
+	int mok;
+
+	if (dat < dai)
 	{
-		h = high;
-		l = low;
-		for (i = low; i < high; i++)
+		soq = dai;
+		sow = dat;
+		for (soe = dat; soe < dai; soe++)
 		{
-			if (a[i] < a[h])
+			if (dao[soe] < dao[soq])
 			{
-				if (i != l)
+				if (soe != sow)
 				{
-					tmp = a[i];
-					a[i] = a[l];
-					a[l] = tmp;
-					print_array(a, size);
+					mok = dao[soe];
+					dao[soe] = dao[sow];
+					dao[sow] = mok;
+					print_array(dao, dap);
 				}
-				l++;
+				sow++;
 			}
 		}
-		if (l != h && a[l] != a[h])
+		if (sow != soq && dao[sow] != dao[soq])
 		{
-			tmp = a[l];
-			a[l] = a[h];
-			a[h] = tmp;
-			print_array(a, size);
+			mok = dao[sow];
+			dao[sow] = dao[soq];
+			dao[soq] = mok;
+			print_array(dao, dap);
 		}
-		_qsort(a, low, l - 1, size);
-		_qsort(a, l + 1, high, size);
+		_qsort(dao, dat, sow - 1, dap);
+		_qsort(dao, sow + 1, dai, dap);
 	}
 }
