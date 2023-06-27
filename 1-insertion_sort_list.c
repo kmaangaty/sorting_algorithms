@@ -2,44 +2,39 @@
 
 /**
  * insertion_sort_list - a function that sorts a odubly linked list
- * of integers in ascending order using the Insertion sort algorithm
  *
- * @list: doubly-linkedlist
- * Return: void
+ * @list: parameter of type struct
+ *
 */
 void insertion_sort_list(listint_t **list)
 {
-listint_t *ptr, *tmp;
+	listint_t *nzm;
+	listint_t *mok;
 
 	if (!list)
 		return;
 
-	ptr = *list;
+	nzm = *list;
 
-	while (ptr)
+	while (nzm)
 	{
-		while (ptr->next && (ptr->n > ptr->next->n))
+		while (nzm->next && (nzm->n > nzm->next->n))
 		{
-			tmp = ptr->next;
-			ptr->next = tmp->next;
-			tmp->prev = ptr->prev;
-
-			if (ptr->prev)
-				ptr->prev->next = tmp;
-
-			if (tmp->next)
-				tmp->next->prev = ptr;
-
-			ptr->prev = tmp;
-			tmp->next = ptr;
-
-			if (tmp->prev)
-				ptr = tmp->prev;
+			mok = nzm->next;
+			nzm->next = mok->next;
+			mok->prev = nzm->prev;
+			if (nzm->prev)
+				nzm->prev->next = mok;
+			if (mok->next)
+				mok->next->prev = nzm;
+			nzm->prev = mok;
+			mok->next = nzm;
+			if (mok->prev)
+				nzm = mok->prev;
 			else
-				*list = tmp;
-
+				*list = mok;
 			print_list(*list);
 		}
-		ptr = ptr->next;
+		nzm = nzm->next;
 	}
 }
