@@ -13,10 +13,10 @@ void quick_sort(int *array, size_t size)
 /**
  * _qsort - function of type void
  *
- * @a: parameter of type int
- * @low: parameter of type int
- * @high: parameter of type int
- * @size: parameter of type int
+ * @dao: parameter of type int
+ * @dat: parameter of type int
+ * @dai: parameter of type int
+ * @dap: parameter of type int
  *
  */
 
